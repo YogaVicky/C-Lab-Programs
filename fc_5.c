@@ -4,14 +4,15 @@
 int main()
 {
   FILE *p;
-  p = fopen( "file.txt","r" );
+  p = fopen( "file.txt","r+" );
   char ch;
+  int num=0;
   while ( ( ch = fgetc(p) ) != EOF )
   {
-    if( ch == 13)
-    printf("Enter");
-    printf("%c", ch );
+    if( ch == '\n')
+    num++;
   }
+  printf("\nThe number of lines is %d\n",num);
   fclose(p);
   return 0;
 }
